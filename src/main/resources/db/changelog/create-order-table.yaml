@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-order
+      author: lalanke
+      changes:
+        - createTable:
+            tableName: order
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: total_price
+                  type: double
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_timestamp
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: version
+                  type: int
+                  defaultValue: 0
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: add-fk-user-id
+      author: lalanke
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: order
+            baseColumnNames: user_id
+            constraintName: fk_user_id
+            referencedTableName: user
+            referencedColumnNames: id
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            validate: true

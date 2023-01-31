@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-users
+      author: lalanke
+      comment: "testing user"
+      changes:
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: name
+                  value: "John Doe"
+              - column:
+                  name: username
+                  value: john
+              - column:
+                  name: password
+                  value: secret

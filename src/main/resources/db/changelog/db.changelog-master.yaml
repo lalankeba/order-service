@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/create-user-table.yaml
+  - include:
+      file: db/changelog/create-order-table.yaml
+  - include:
+      file: db/changelog/create-product-table.yaml
+  - include:
+      file: db/changelog/create-order-product-table.yaml
+  - include:
+      file: db/changelog/insert-user-data.yaml
+  - include:
+      file: db/changelog/insert-product-data.yaml

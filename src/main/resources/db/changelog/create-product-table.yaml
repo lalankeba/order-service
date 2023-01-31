@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-product
+      author: lalanke
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: type
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: unit_price
+                  type: double
+                  constraints:
+                    nullable: true
+              - column:
+                  name: quantity
+                  type: int
+                  constraints:
+                    nullable: true

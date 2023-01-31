@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-products
+      author: lalanke
+      comment: "testing products"
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: type
+                  value: "SHIRT"
+              - column:
+                  name: unit_price
+                  value: 3500.00
+              - column:
+                  name: quantity
+                  value: 10
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: type
+                  value: "FROCK"
+              - column:
+                  name: unit_price
+                  value: 2750.00
+              - column:
+                  name: quantity
+                  value: 15

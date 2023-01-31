@@ -1,0 +1,67 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-order-product
+      author: lalanke
+      changes:
+        - createTable:
+            tableName: order_product
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: order_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: unit_price
+                  type: double
+                  constraints:
+                    nullable: false
+              - column:
+                  name: quantity
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: double
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_timestamp
+                  type: timestamp
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: add-fk-order-product-id
+      author: lalanke
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: order_product
+            baseColumnNames: order_id
+            constraintName: fk_order_id
+            referencedTableName: order
+            referencedColumnNames: id
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            validate: true
+        - addForeignKeyConstraint:
+            baseTableName: order_product
+            baseColumnNames: product_id
+            constraintName: fk_product_id
+            referencedTableName: product
+            referencedColumnNames: id
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            validate: true
